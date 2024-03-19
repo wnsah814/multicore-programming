@@ -20,6 +20,8 @@ void TTASLock_lock(TTASLock *lock) {
     while (atomic_load_explicit(&lock->flag, memory_order_relaxed));
     if (!atomic_exchange_explicit(&lock->flag, true, memory_order_acquire))
       return;
+    struct timespec ts = {0, 100};
+    nanosleep(&ts, NULL);
   }
 }
 
