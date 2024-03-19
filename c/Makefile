@@ -1,7 +1,8 @@
 CXX = gcc
 CXXFLAGS = -O0 -pthread
 
-TARGET = tas ttas mutex backoff
+TARGET = tas ttas mutex backoff\
+				 atomic
 
 all: bin $(TARGET)
 
